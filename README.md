@@ -1,4 +1,4 @@
-# PABW — Syahrul Imtikhan Ahmad — NI25523064M
+# PABW — Syahrul Imtikhan Ahmad — NIM25523064
  
 Repo ini memuat pekerjaan mata kuliah Pengembangan Aplikasi
 Berbasis Web, satu folder untuk setiap pertemuan.
