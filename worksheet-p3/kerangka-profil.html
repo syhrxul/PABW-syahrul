@@ -1,0 +1,97 @@
+<!DOCTYPE html lang="id">
+<!--
+  KERANGKA AWAL — Halaman Profil Saya
+  PABW 2026/2027 · Pertemuan 3
+
+  Cara pakai:
+  1. Salin berkas ini, ganti nama menjadi profil.html
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
+
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
+  komentar itu adalah daftar periksa Anda sendiri.
+-->
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Daftar Tugas Kuliah</title>
+</head>
+<body>
+
+     <header id="beranda">
+          <h1>Daftar Tugas Kuliah</h1>
+          <p>Halaman ini menampilkan Tugas Kuliah dan Tenggatnya.</p>
+          <nav aria-label="Navigasi utama">
+               <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#daftar-tugas">Daftar Tugas</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+               </ul>
+          </nav>
+     </header>
+
+     <main>
+          <section id="daftar-tugas">
+               <h2>Daftar Tugas Saya</h2>
+
+               <table>
+                    <caption>Daftar tugas kuliah dan tenggatnya</caption>
+                    <thead>
+                         <tr>
+                              <th scope="col">Nama Tugas</th>
+                              <th scope="col">Tenggat</th>
+                              <th scope="col">Nama Mata Kuliah</th>
+                              <th scope="col">Prioritas</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                              <td>Tugas#1</td>
+                              <td>2026-10-01</td>
+                              <td>PABW</td>
+                              <td>Tinggi</td>
+                         </tr>
+                         <tr>
+                              <td>Makalah Kelompok</td>
+                              <td>2026-10-08</td>
+                              <td>Basis Data</td>
+                              <td>Sedang</td>
+                         </tr>
+                         <tr>
+                              <td>Presentasi Proyek</td>
+                              <td>2026-10-15</td>
+                              <td>Rekayasa Perangkat Lunak</td>
+                              <td>Rendah</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </section>
+
+          <section id="tambah-tugas">
+               <h2>Tambah Tugas</h2>
+               <form>
+                    <div>
+                         <label for="nama-tugas">Nama Tugas</label>
+                         <input type="text" id="nama-tugas" name="nama-tugas" required>
+                    </div>
+                    <div>
+                         <label for="tenggat">Tenggat</label>
+                         <input type="date" id="tenggat" name="tenggat" required>
+                    </div>
+                    <div>
+                         <label for="nama-mata-kuliah">Nama Mata Kuliah</label>
+                         <input type="text" id="nama-mata-kuliah" name="nama-mata-kuliah" required>
+                    </div>
+                    <button type="submit">Tambah Tugas</button>
+               </form>
+          </section>
+     </main>
+
+     <footer id="kontak">
+          <p>Syahrul Imtikhan Ahmad · NI25523064M · 2026</p>
+     </footer>
+
+</body>
+</html>

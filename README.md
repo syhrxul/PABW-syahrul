@@ -1,19 +1,19 @@
-# PABW — Nama Anda — NIM
+# PABW — Syahrul Imtikhan Ahmad — NI25523064M
  
 Repo ini memuat pekerjaan mata kuliah Pengembangan Aplikasi
 Berbasis Web, satu folder untuk setiap pertemuan.
  
 ## Pertemuan 3 — Halaman profil saya
  
-Topik halaman saya: koleksi buku di rak saya.
+Topik halaman saya: Daftar tugas dan prioritas
  
-- Judul halaman: Rak Buku Saya
-- Deskripsi: daftar buku yang saya miliki beserta status bacanya
-- Tautan navigasi: Daftar Buku, Tambah Buku, Tentang Saya
-- Dua bagian utama: Daftar Buku, Tambah Buku
-- Kolom tabel: judul, penulis, tahun terbit, status baca
-- Kolom form: judul, penulis, status baca
-- Gambar: koleksi-1.webp
+- Judul halaman: Daftar Tugas Kuliah
+- Deskripsi: Halaman ini menampilkan Tugas Kuliah dan Tenggatnya
+- Tautan navigasi: Beranda, Daftar Tugas, Kontak
+- Dua bagian utama: Daftar Tugas saya, Tambah Tugas
+- Kolom tabel: Nama Tugas, Tenggat, Mata Kuliah, Prioritas
+- Kolom form: Nama Tugas, Tenggat, Nama mata kuliah
+- Gambar: Tugas#1.jpeg
  
 ## Catatan penggunaan AI
  
