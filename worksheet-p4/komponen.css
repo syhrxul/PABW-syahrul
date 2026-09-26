@@ -1,0 +1,110 @@
+/* komponen.css — tampilan kartu, tombol, tabel, gambar, dan form */
+
+/* ---- Kartu katalog ---- */
+.kartu h3 {
+  margin-bottom: var(--space-2);
+}
+
+.kartu p {
+  font-size: var(--text-sm);
+}
+
+/* ---- Tabel daftar tugas ---- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+caption {
+  text-align: left;
+  padding-block: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-fg);
+}
+
+th, td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+thead th {
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+}
+
+tbody th {
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-surface);
+}
+
+/* ---- Gambar ---- */
+figure {
+  margin-top: var(--space-6);
+}
+
+figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+/* ---- Form ---- */
+.form-kolom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+input, select, textarea {
+  font: inherit;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+
+button {
+  font: inherit;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+/* ---- Keadaan fokus: wajib terlihat ---- */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ---- Keadaan tidak sah: hanya setelah pengguna mengisi ---- */
+input:user-invalid {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+.pesan-galat {
+  display: none;
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+
+.form-kolom:has(input:user-invalid) .pesan-galat {
+  display: block;
+}

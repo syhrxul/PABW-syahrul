@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Tugas Kuliah</title>
+
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="komponen.css">
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+
+  <header id="beranda">
+    <div class="header-baris">
+      <h1>Daftar Tugas Kuliah</h1>
+      <label for="tema" class="tombol-tema">
+        <input type="checkbox" id="tema" class="pengalih-tema">
+        Tema gelap
+      </label>
+      <nav aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#daftar-tugas">Daftar Tugas</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p>Halaman ini menampilkan Tugas Kuliah dan Tenggatnya.</p>
+  </header>
+
+  <main>
+    <section id="daftar-tugas">
+      <h2>Daftar Tugas Saya</h2>
+
+      <table>
+        <caption>Daftar tugas kuliah dan tenggatnya</caption>
+        <thead>
+          <tr>
+            <th scope="col">Nama Tugas</th>
+            <th scope="col">Tenggat</th>
+            <th scope="col">Nama Mata Kuliah</th>
+            <th scope="col">Prioritas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Tugas#1</th>
+            <td>2026-10-01</td>
+            <td>PABW</td>
+            <td>Tinggi</td>
+          </tr>
+          <tr>
+            <th scope="row">Makalah Kelompok</th>
+            <td>2026-10-08</td>
+            <td>Basis Data</td>
+            <td>Sedang</td>
+          </tr>
+          <tr>
+            <th scope="row">Presentasi Proyek</th>
+            <td>2026-10-15</td>
+            <td>Rekayasa Perangkat Lunak</td>
+            <td>Rendah</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure>
+        <img src="Tugas#1.jpg" alt="Gambar pendukung untuk Tugas #1 kuliah." width="640" height="360" loading="lazy">
+        <figcaption>Dokumentasi Tugas #1 kuliah.</figcaption>
+      </figure>
+    </section>
+
+    <section id="tambah-tugas">
+      <h2>Tambah Tugas</h2>
+      <form action="/simpan" method="post">
+        <p class="form-kolom">
+          <label for="nama-tugas">Nama Tugas</label>
+          <input type="text" id="nama-tugas" name="nama-tugas" required>
+          <span class="pesan-galat">Nama tugas wajib diisi.</span>
+        </p>
+        <p class="form-kolom">
+          <label for="tenggat">Tenggat</label>
+          <input type="date" id="tenggat" name="tenggat" required>
+          <span class="pesan-galat">Tenggat wajib diisi.</span>
+        </p>
+        <p class="form-kolom">
+          <label for="nama-mata-kuliah">Nama Mata Kuliah</label>
+          <input type="text" id="nama-mata-kuliah" name="nama-mata-kuliah" required>
+          <span class="pesan-galat">Nama mata kuliah wajib diisi.</span>
+        </p>
+        <button type="submit">Simpan</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="kontak">
+    <p>Syahrul Imtikhan Ahmad · 25523064 · 2026</p>
+  </footer>
+
+</body>
+</html>
