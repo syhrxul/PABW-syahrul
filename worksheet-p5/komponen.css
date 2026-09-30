@@ -1,57 +1,38 @@
 
-.kartu h3 {
-  margin-bottom: var(--space-2);
-}
-
 .kartu p {
   font-size: var(--text-sm);
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-caption {
-  text-align: left;
-  padding-block: var(--space-2);
-  font-size: var(--text-sm);
-  color: var(--color-fg);
-}
-
-th, td {
-  text-align: left;
-  padding: var(--space-2) var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-}
-
-thead th {
-  background: var(--color-surface);
-  font-size: var(--text-sm);
-}
-
-tbody th {
-  font-weight: 600;
-}
-
-tbody tr:nth-child(even) {
-  background: var(--color-surface);
-}
-
 figure {
-  margin-top: var(--space-6);
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
 }
 
 figcaption {
-  margin-top: var(--space-2);
   font-size: var(--text-sm);
+}
+
+.kartu dl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.kartu dt {
+  font-weight: 600;
+}
+
+.kartu dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .form-kolom {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
 }
 
 label {
