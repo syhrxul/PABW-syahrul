@@ -11,7 +11,13 @@ const identitasHalaman = {
   tahun: 2026,
 };
 
-const kalimatProfil = `Saya ${profil.namaLengkap}, ${profil.peran}. Saya menggunakan halaman ini untuk ${profil.keahlian.join(", ")}; saat ini ada ${profil.jumlahTugas} tugas tercatat.`;
+function buatPerkenalan({ namaLengkap, peran }) {
+  return `Saya ${namaLengkap}, ${peran}`;
+}
+
+const formatKeahlian = (daftar) => daftar.join(" · ");
+
+const kalimatProfil = `${buatPerkenalan(profil)}. Keahlian: ${formatKeahlian(profil.keahlian)}. Saat ini ada ${profil.jumlahTugas} tugas tercatat.`;
 
 document.title = identitasHalaman.judul;
 document.querySelector("header h1").textContent = identitasHalaman.judul;
