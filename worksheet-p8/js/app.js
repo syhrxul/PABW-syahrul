@@ -2,8 +2,8 @@ const profil = {
   nama: "Syahrul Imtikhan Ahmad",
   nim: "25523064",
   tahun: 2026,
-  peran: "mahasiswa Informatika yang mengelola daftar tugas kuliah",
-  keahlian: ["mencatat tugas", "mengatur tenggat", "menentukan prioritas"],
+  peran: "mahasiswa Informatika",
+  keahlian: ["mengelola tugas", "mencatat tenggat", "mengatur prioritas"],
 };
 
 const judulHalaman = "Daftar Tugas Kuliah";
@@ -70,7 +70,7 @@ function buatKartuTugas(tugas) {
   return kartu;
 }
 
-const kalimatProfil = `${buatPerkenalan(profil)}. Keahlian: ${formatKeahlian(profil.keahlian)}. Saat ini ada ${daftarTugas.length} tugas tercatat.`;
+const kalimatProfil = `${buatPerkenalan(profil)}. Halaman ini saya gunakan untuk: ${formatKeahlian(profil.keahlian)}.`;
 const tugasPrioritasTinggi = daftarTugas.filter(
   (tugas) => tugas.prioritas === "Tinggi",
 );
