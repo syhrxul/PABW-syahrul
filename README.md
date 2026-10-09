@@ -167,17 +167,48 @@ halaman: daftar tugas dirender dari array, bukan ditulis tangan di HTML.
 | Pendengar ganda setelah render ulang | Pendengar dipasang di dalam `render` | Pendengar dipasang sekali di induk, di luar `render` |
 | Isi daftar kosong | Penyaringan tidak menghasilkan isi | `pesan-kosong` ditampilkan di dalam `render` |
 
-### Pemeriksaan P9
+### Pemeriksaan B.3 — Bandingkan hasil kerja
 
-- Halaman dibuka, daftar tugas langsung tampil 3 kartu dari data.
-- Klik "Basis Data": 1 kartu. Klik "Sains Data": 0 kartu, pesan
-  keadaan kosong muncul. Klik "Semua": 3 kartu.
-- Klik filter berkali-kali: jumlah kartu tidak berlipat.
-- Submit form kosong: halaman tidak dimuat ulang, 3 pesan galat muncul,
-  fokus ke kolom pertama.
-- Isi satu kolom: pesan galatnya hilang, tombol kirim tetap disabled.
-  Isi semua: tombol aktif. Submit: kartu bertambah jadi 4, form tereset.
-- Console bersih, tidak ada `null` dan tidak ada pesan 404.
+| Yang diperiksa | Hasil yang benar | Hasil yang saya dapat |
+|---|---|---|
+| Jumlah kartu di halaman | Sama dengan panjang `daftarTugas` | 3 — sama dengan `daftarTugas.length` |
+| Satu kartu paling atas | Judulnya sama dengan data pertama | `Tugas#1` — sama dengan `daftarTugas[0].judul` |
+| Teks di dalam kartu | Tampil sebagai teks, bukan tag yang terurai | Tampil sebagai teks; kartu diisi dengan `textContent` |
+
+Cek di Console:
+
+```js
+document.querySelectorAll("#daftar .kartu").length   // 3
+document.querySelector("#daftar .kartu h3").textContent // "Tugas#1"
+```
+
+### Pemeriksaan C.2 — Empat keadaan filter
+
+| Keadaan | Yang harus terjadi | Hasil yang saya dapat |
+|---|---|---|
+| Halaman baru dibuka | Semua tugas tampil, tombol "Semua" bertanda aktif | 3 kartu; tombol `data-kategori="semua"` sudah berkelas `aktif` dari HTML |
+| Klik satu kategori | Hanya tugas mata kuliah itu yang tampil | Klik "PABW" → 1 kartu (`Tugas#1`); tombol PABW yang aktif |
+| Klik kategori kosong | Wadah kosong dan pesannya muncul, bukan halaman kosong | Klik "Sains Data" → 0 kartu, `#pesan-kosong` terlihat |
+| Klik dua kali cepat | Jumlah kartu tidak berlipat | Klik "PABW" 2× cepat → tetap 1 kartu |
+
+Cek di Console setelah klik:
+
+```js
+document.querySelectorAll("#daftar .kartu").length          // lihat baris tabel
+document.querySelector("#pesan-kosong").hidden              // false = pesan terlihat
+document.querySelector("#filter button.aktif").dataset.kategori
+```
+
+Panel Elements → tab **Event Listeners** pada `#filter`: harus satu `click` saja.
+
+### Pemeriksaan D.3 — Validasi form
+
+| Yang diperiksa | Hasil yang benar | Hasil yang saya dapat |
+|---|---|---|
+| Kirim form kosong | Halaman tidak dimuat ulang; pesan galat muncul | Tidak reload; 3 kolom berkelas `tidak-sah`, fokus ke `#nama-tugas` |
+| Perbaiki satu kolom | Pesannya hilang begitu isinya layak | Ketik di "Nama Tugas" → pesan di kolom itu hilang, 2 sisanya tetap |
+| Isi hanya spasi | Masih dinyatakan tidak sah | Ketik spasi saja → tetap `tidak-sah`, karena dipakai `value.trim()` |
+| Tombol kirim | Menunggu sampai seluruh kolom layak | `disabled` sampai ketiga kolom terisi; baru aktif |
 
 ### Penilaian mandiri P9
 
@@ -213,9 +244,3 @@ halaman: daftar tugas dirender dari array, bukan ditulis tangan di HTML.
 Struktur HTML dan seluruh berkas CSS (tokens.css, base.css,
 layout.css, komponen.css, tema.css) diketik sendiri mengikuti
 instruksi worksheet. AI (Claude) membantu: warna yang cocok dipilih dan cara penggunaannya.
-
-Pertemuan 9: seluruh kode `js/dom.js` dan perubahan `profil.html`
-diketik sendiri mengikuti lembar A–F worksheet. AI (Hermes) membantu:
-menjelaskan pola event delegation dan validasi form, serta
-memeriksa apakah pemilih menghasilkan `null` dan apakah pendengar
-dobel setelah render.
