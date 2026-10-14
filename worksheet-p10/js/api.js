@@ -1,31 +1,32 @@
 // js/api.js — lapisan data. Satu-satunya berkas yang memanggil fetch.
-// app.js dan dom.js tidak boleh memanggil fetch sendiri.
 
-const ALAMAT = 'https://jsonplaceholder.typicode.com/todos';
+const ALAMAT = "https://jsonplaceholder.typicode.com/todos";
 
-// JSON.stringify dipakai saat nilai JavaScript perlu menjadi teks JSON,
-// misalnya bila tugas nanti dikirim ke API atau disimpan di localStorage.
+// Nilai JavaScript menjadi teks JSON untuk dikirim atau disimpan.
 export function ubahTugasKeJSON(tugas) {
   return JSON.stringify(tugas);
 }
 
-/**
- * Mengambil daftar tugas dari API.
- * Mengembalikan larik objek tugas.
- */
-export async function ambilTugas() {
+// Menerima alamat agar kasus 404 dan badan non-JSON dapat diuji.
+export async function ambilTugasDari(alamat) {
   try {
-    const respons = await fetch(ALAMAT);
-    console.log('status', respons.status, 'ok', respons.ok);
+    const respons = await fetch(alamat);
+    console.log("status", respons.status, "ok", respons.ok);
 
+    // fetch tidak otomatis gagal untuk 404/500.
     if (!respons.ok) {
-      throw new Error('status ' + respons.status);
+      throw new Error("status " + respons.status);
     }
 
-    const data = await respons.json();
-    return data;
+    // Bila isi respons bukan JSON, json() menolak Promise dan masuk catch.
+    return await respons.json();
   } catch (galat) {
-    console.error('gagal memuat', galat.message);
+    console.error("gagal memuat", galat.message);
     throw galat;
   }
+}
+
+// Fungsi yang dipakai tampilan; alamat API hanya ditulis satu kali di atas.
+export function ambilTugas() {
+  return ambilTugasDari(ALAMAT);
 }
