@@ -1,0 +1,61 @@
+
+body {
+  min-height: 100dvh;
+}
+
+main {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "utama"
+    "sisi";
+}
+
+.sisi,
+.utama,
+.galeri,
+.kartu {
+  min-width: 0;
+}
+
+.galeri {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.kartu__judul,
+.kartu__isi,
+.kartu dd {
+  overflow-wrap: anywhere;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Tablet: galeri dua kolom. */
+@media (min-width: 48rem) {
+  .galeri {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 60rem) {
+  main {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    grid-template-areas: "sisi utama";
+  }
+
+  .galeri {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
