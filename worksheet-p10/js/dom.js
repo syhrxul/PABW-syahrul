@@ -1,6 +1,3 @@
-// dom.js: satu-satunya berkas yang menyentuh halaman.
-// Data dan fungsi murni diimpor dari app.js.
-
 import {
   profil,
   judulHalaman,
@@ -8,16 +5,15 @@ import {
   buatPerkenalan,
   formatKeahlian,
 } from "./app.js";
-
-// --- Pemilihan elemen (lembar A) ------------------------------------
+import { ambilTugas } from "./api.js";
 
 const wadah = document.querySelector("#daftar");
 const pesanKosong = document.querySelector("#pesan-kosong");
+const wadahApi = document.querySelector("#daftar-api");
+const statusApi = document.querySelector("#status-api");
 const barisFilter = document.querySelector("#filter");
 const form = document.querySelector("#form-tugas");
 const tombolKirim = document.querySelector("#tombol-simpan");
-
-// --- Membuat elemen (lembar B) --------------------------------------
 
 function buatKartuTugas(tugas) {
   const kartu = document.createElement("li");
@@ -54,10 +50,6 @@ function buatKartuTugas(tugas) {
   return kartu;
 }
 
-// --- Pola render (lembar D) -----------------------------------------
-// Tampilan adalah fungsi dari data: kosongkan, periksa keadaan kosong,
-// isi ulang. Urutan ini tidak boleh ditukar.
-
 let kategoriAktif = "semua";
 
 function render(daftar) {
@@ -72,8 +64,48 @@ function render(daftar) {
   daftar.forEach((tugas) => wadah.append(buatKartuTugas(tugas)));
 }
 
-// --- Event delegation (lembar C) ------------------------------------
-// Satu pendengar di induk melayani semua tombol, termasuk yang nanti.
+// --- Data API (lembar D) ---------------------------------------------
+// Keadaan yang ditampilkan: memuat, berhasil, gagal, dan kosong.
+
+function buatKartuApi(tugas) {
+  const kartu = document.createElement("li");
+  kartu.className = "kartu";
+
+  const judul = document.createElement("h3");
+  judul.className = "kartu__judul";
+  judul.textContent = tugas.title;
+
+  const status = document.createElement("p");
+  status.className = "kartu__kaki";
+  status.textContent = tugas.completed ? "Sudah selesai" : "Belum selesai";
+
+  kartu.append(judul, status);
+  return kartu;
+}
+
+function gambarTugasApi(daftar) {
+  wadahApi.textContent = "";
+  daftar.forEach((tugas) => wadahApi.append(buatKartuApi(tugas)));
+}
+
+async function tampilkanTugasApi() {
+  statusApi.textContent = "Memuat data...";
+  wadahApi.textContent = "";
+
+  try {
+    const daftar = await ambilTugas();
+
+    if (daftar.length === 0) {
+      statusApi.textContent = "Belum ada tugas dari API.";
+      return;
+    }
+
+    gambarTugasApi(daftar.slice(0, 10));
+    statusApi.textContent = `Berhasil memuat ${daftar.length} tugas dari API.`;
+  } catch (galat) {
+    statusApi.textContent = `Gagal memuat data: ${galat.message}`;
+  }
+}
 
 function tandaiTombolAktif(tombolAktif) {
   document.querySelectorAll("#filter button").forEach((tombol) => {
@@ -95,7 +127,6 @@ barisFilter.addEventListener("click", (event) => {
   render(terpilih);
 });
 
-// --- Validasi form (lembar D) ---------------------------------------
 
 const kolom = Array.from(form.querySelectorAll("input"));
 
@@ -115,7 +146,6 @@ function periksaSemuaKolom() {
   return hasil.every(Boolean);
 }
 
-// Tombol menunggu, bukan menolak: periksa setiap kali pengguna mengetik.
 kolom.forEach((input) => input.addEventListener("input", periksaSemuaKolom));
 
 form.addEventListener("submit", (event) => {
@@ -143,8 +173,6 @@ form.addEventListener("submit", (event) => {
   render(daftarTugas);
 });
 
-// --- Pemasangan isi halaman ------------------------------------------
-
 document.title = judulHalaman;
 document.querySelector("header h1").textContent = judulHalaman;
 document.querySelector("header > p").textContent =
@@ -153,3 +181,4 @@ document.querySelector("footer p").textContent =
   `${profil.nama} · ${profil.nim} · ${profil.tahun}`;
 
 render(daftarTugas);
+tampilkanTugasApi();
