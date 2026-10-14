@@ -3,6 +3,12 @@
 
 const ALAMAT = 'https://jsonplaceholder.typicode.com/todos';
 
+// JSON.stringify dipakai saat nilai JavaScript perlu menjadi teks JSON,
+// misalnya bila tugas nanti dikirim ke API atau disimpan di localStorage.
+export function ubahTugasKeJSON(tugas) {
+  return JSON.stringify(tugas);
+}
+
 /**
  * Mengambil daftar tugas dari API.
  * Mengembalikan larik objek tugas.
