@@ -29,9 +29,6 @@ export const daftarTugas = [
   },
 ];
 
-// app.js: data dan fungsi murni. Tidak menyentuh halaman.
-// Bagian DOM ada di js/dom.js.
-
 export function buatPerkenalan({ nama, peran }) {
   return `Saya ${nama}, ${peran}`;
 }
