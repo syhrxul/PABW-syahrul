@@ -15,7 +15,20 @@ Berkas contoh Vite yang tidak diperlukan sudah dihapus. Hasil pemeriksaan halama
 - `node_modules/` tersedia setelah `npm install`.
 - `npm run build` berhasil membuat `dist/`.
 
+## Lembar C — pemindahan aset
+
+Aset P10 sudah dipindahkan ke proyek Vue tanpa mengubah isi CSS. `index.html` hanya berisi tempat aplikasi dan script `src/main.js`. Enam CSS diimpor dari `src/main.js` dengan urutan: tokens, base, layout, komponen, tema, responsif. Data ada di `src/data.js`, API ada di `src/api.js`, dan gambar ada di `public/`.
+
+Pemeriksaan Lembar C:
+
+- Halaman terbuka melalui `npm run dev`.
+- Tidak ada error Console atau error jaringan.
+- File contoh Vite sudah dihapus.
+- Tampilan dan CSS tetap seperti proyek sebelumnya.
+- `npm run build` dan `npm run preview` berhasil.
+
 ## Versi perkakas
+
 
 | Perkakas | Versi |
 |---|---|
