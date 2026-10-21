@@ -1,0 +1,120 @@
+
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+}
+
+header {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-baris {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  gap: var(--space-4);
+  flex-wrap: wrap;                 
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1fr) minmax(0, 2fr);
+  grid-template-areas: "sisi utama";
+  align-content: start;
+  gap: var(--section-gap);
+  padding-block: var(--space-6);
+}
+
+.sisi {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+  grid-area: sisi;
+  min-width: 0;
+}
+
+.utama {
+  display: grid;
+  align-content: start;
+  gap: var(--space-6);
+  grid-area: utama;
+  min-width: 0;
+}
+
+.sisi form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+footer {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 48rem) {
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "utama"
+      "sisi";
+  }
+}
+
+.kartu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 14rem;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+  padding: var(--card-pad);
+}
+
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  align-items: stretch;
+  gap: var(--space-4);
+}
+
+.kartu__judul {
+  overflow-wrap: anywhere;
+}
+
+.kartu__isi {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.kartu__kaki {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
