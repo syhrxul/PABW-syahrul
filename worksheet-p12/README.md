@@ -4,6 +4,17 @@ Proyek Vue 3 + Vite yang memindahkan halaman **Daftar Tugas Kuliah**
 dari P10 ke bentuk komponen. Tampilan, token, dan enam berkas CSS
 P04–P06 dipakai apa adanya.
 
+## Lembar B — proyek baru
+
+Proyek dibuat di folder `worksheet-p12/`, terpisah dari pekerjaan worksheet sebelumnya. Kerangka Vue/Vite sudah berjalan melalui `npm run dev` pada `http://127.0.0.1:5173/`. Folder `node_modules/` dan `dist/` diabaikan oleh `.gitignore`, sedangkan `package.json` dan `package-lock.json` tetap disimpan.
+
+Berkas contoh Vite yang tidak diperlukan sudah dihapus. Hasil pemeriksaan halaman:
+
+- Halaman terbuka tanpa error.
+- Console bersih dari error.
+- `node_modules/` tersedia setelah `npm install`.
+- `npm run build` berhasil membuat `dist/`.
+
 ## Versi perkakas
 
 | Perkakas | Versi |
